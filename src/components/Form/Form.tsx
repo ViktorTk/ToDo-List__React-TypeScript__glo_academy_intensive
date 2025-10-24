@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import './Form.scss'
+import {
+  FormWrapper,
+  FormBlock,
+  FormLabel,
+  FormField,
+  FormControl,
+} from './Form.styled'
+
+import PlusIcon from '../../assets/images/plus.png'
 
 export const Form = (props: { createNewToDo: Function }) => {
   const [text, setText] = useState<string>('')
@@ -13,17 +21,17 @@ export const Form = (props: { createNewToDo: Function }) => {
   }
 
   return (
-    <div className="form-wrapper">
-      <form action="#" onSubmit={formSubmit}>
-        <label>
-          <input
+    <FormWrapper>
+      <FormBlock action="#" onSubmit={formSubmit}>
+        <FormLabel>
+          <FormField
             type="text"
             value={text}
             onChange={(event) => setText(event.target.value)}
           />
-          <button></button>
-        </label>
-      </form>
-    </div>
+          <FormControl icon={PlusIcon} />
+        </FormLabel>
+      </FormBlock>
+    </FormWrapper>
   )
 }
